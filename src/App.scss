@@ -1,0 +1,175 @@
+$app-bg-color: #e5e5e5;
+$header-bg-color: #e4f0fc;
+$title-color: #343951;
+$subtitle-color: #343951;
+$banner-action-bg-color: #449dfe;
+$banner-action-text-color: #ffffff;
+$underline: #449dfe;
+
+$mobile-width: 599px;
+$tablet-width: 1023px;
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$mobile-width + 1px}) and (max-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$tablet-width + 1px}) {
+    @content;
+  }
+}
+
+.app-container {
+  height: 100vh;
+  background-color: $app-bg-color;
+}
+
+.banner {
+  background-color: $header-bg-color;
+  padding: 24px 24px 0;
+  @include mobile {
+    padding: 16px 16px 0;
+  }
+
+  .top-banner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+
+    @include mobile {
+      display: block;
+    }
+
+    .title-container {
+      flex: 60%;
+
+      .title {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 64px;
+        color: $title-color;
+        @include mobile {
+          text-align: center;
+          font-size: 32px;
+          line-height: 32px;
+        }
+      }
+
+      .sub-title {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 32px;
+        line-height: 32px;
+        color: $subtitle-color;
+        @include mobile {
+          text-align: center;
+          font-size: 16px;
+          line-height: 24px;
+        }
+
+        span {
+          position: relative;
+
+          @include desktop {
+            &:after {
+              content: '';
+              position: absolute;
+              left: -13px;
+              bottom: -5px;
+              width: 100px;
+              height: 10px;
+              border-radius: 20px;
+              background: $underline;
+              transform: rotate(-5.71deg);
+            }
+          }
+        }
+      }
+    }
+
+    .rocket-stars {
+      flex: 40%;
+
+      .rocket {
+        width: 250px;
+        height: 250px;
+        position: relative;
+        margin: auto;
+        @include mobile {
+          padding-bottom: 20px;
+        }
+
+        .star-1 {
+          display: none;
+
+          @include desktop {
+            display: block;
+            width: 69px;
+            height: 69px;
+            position: absolute;
+            top: 0;
+            right: -100px;
+          }
+        }
+
+        .star-2 {
+          width: 69px;
+          height: 69px;
+          position: absolute;
+          right: -60px;
+          top: 45%;
+        }
+
+        .star-3 {
+          width: 69px;
+          height: 69px;
+          position: absolute;
+          left: -100px;
+          top: 50%;
+        }
+      }
+    }
+  }
+}
+
+.action {
+  background-color: $header-bg-color;
+  padding: 0 24px 24px;
+  margin-top: 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @include mobile {
+    background-color: transparent;
+    text-align: center;
+    margin: 30px 0;
+  }
+
+  button.banner-action {
+    width: 250px;
+    height: 50px;
+    background-color: $banner-action-bg-color;
+    border-radius: 25px;
+    text-align: center;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    color: $banner-action-text-color;
+    border: none;
+
+    &:hover {
+      background-color: darken($banner-action-bg-color, 10%);
+    }
+  }
+}
