@@ -21,10 +21,11 @@ function App() {
           </div>
         </div>
       </div>
-      <div className='action'>
-          <button className='banner-action'><span>Get Started</span></button>
+      <div className='action-container'>
+        <div className='action'>
+            <button className='banner-action'><span>Get Started</span></button>
+        </div>
       </div>
-      
     </div>
   );
 }
