@@ -41,8 +41,15 @@ $tablet-width: 1023px;
 
   .top-banner {
     max-width: 1440px;
-    margin: 100px auto 0 auto;
+    margin: 100px auto auto;
+    padding-bottom: 100px;
     display: flex;
+    align-content: center;
+    gap: 100px;
+    justify-content: center;
+    @include tablet {
+      gap: 0;
+    }
 
     @include mobile {
       display: block;
@@ -50,9 +57,11 @@ $tablet-width: 1023px;
     }
 
     .title-container {
-      flex: 60%;
+      align-self: center;
+      flex-basis: content;
       @include tablet {
-        flex: 50%;
+        flex: 40% 1;
+        padding-left: 40px;
       }
 
       .title {
@@ -100,12 +109,37 @@ $tablet-width: 1023px;
           }
         }
       }
+
+      button.banner-action {
+        width: 250px;
+        height: 50px;
+        background-color: $banner-action-bg-color;
+        border-radius: 25px;
+        text-align: center;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 30px;
+        color: $banner-action-text-color;
+        border: none;
+        margin: 20px 0;
+
+        &:hover {
+          background-color: darken($banner-action-bg-color, 10%);
+        }
+
+        @include mobile {
+          display: none;
+        }
+      }
     }
 
     .rocket-stars {
-      flex: 40%;
+      align-self: center;
+      flex-basis: content;
       @include tablet {
-        flex: 50%;
+        flex: 40% 1;
       }
 
       .rocket {
@@ -164,21 +198,21 @@ $tablet-width: 1023px;
 }
 
 .action-container {
-  background-color: $header-bg-color;
-  padding: 0 24px 24px;
-  @include mobile {
-    padding: 30px 16px 16px;
+  padding: 30px 16px 16px;
+  background-color: transparent;
+
+  @include tablet {
+    display: none;
+  }
+  @include desktop {
+    display: none;
   }
 
   .action {
-    margin-top: 20px;
     max-width: 1440px;
     margin: 0 auto 100px;
-
-    @include mobile {
-      background-color: transparent;
-      text-align: center;
-    }
+    background-color: transparent;
+    text-align: center;
 
     button.banner-action {
       width: 250px;

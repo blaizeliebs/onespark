@@ -10,6 +10,7 @@ function App() {
           <div className='title-container'>
             <h1 className='title'>Hello and Welcome!</h1>
             <h2 className='sub-title'>This is the <span>start</span> of your new journey</h2>
+            <button className='banner-action'><span>Get Started</span></button>
           </div>
           <div className='rocket-stars'>
             <div className='rocket'>
